@@ -1,0 +1,8 @@
+require("prototypes.technology-updates")
+
+if mods["aai-industry"] then
+  require("compatibility.aai-industry.data-updates")
+end
+if mods["Legendary_Quality_science_pack_requirements"] then
+  require("compatibility.Legendary_Quality_science_pack_requirements.data-updates")
+end
