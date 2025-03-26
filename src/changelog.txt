@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.0
+Version: 0.0.2
 Date: 2025-03-25
   Info:
     - Remove control setting that kills some achevements
