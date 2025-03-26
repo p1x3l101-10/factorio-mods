@@ -1,4 +1,6 @@
-local Difficulty = {}
+local Difficulty = {
+  events = {}
+}
 
 Difficulty.on_init = function()
   if game.surfaces["hexalith"] then
