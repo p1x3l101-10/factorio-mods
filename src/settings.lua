@@ -1,2 +1,2 @@
 require("settings.peaceful-nauvis")
-require("hexalith-difficulty")
+require("settings.hexalith-difficulty")
