@@ -1,4 +1,6 @@
-script.on_init(function()
+local Difficulty = {}
+
+Difficulty.on_init = function()
   if game.surfaces["hexalith"] then
     local difficulty = settings.startup["hexalith-nuclear-science-hexalith-difficulty"].value
     if difficulty == "easy" then
@@ -8,9 +10,9 @@ script.on_init(function()
       game.forces["enemy"].set_evolution_factor(0.0, game.surfaces.hexalith)
     end
   end
-end)
+end
 
-script.on_event(defines.events.on_surface_created, function(event)
+Difficulty.events[defines.events.on_surface_created] = function(event)
   local surface = game.surfaces[event.surface_index]
   if surface.name == "hexalith" then
       local difficulty = settings.startup["hexalith-nuclear-science-hexalith-difficulty"].value
@@ -21,4 +23,6 @@ script.on_event(defines.events.on_surface_created, function(event)
         game.forces["enemy"].set_evolution_factor(0.0, surface)
       end
   end
-end)
+end
+
+return Difficulty
