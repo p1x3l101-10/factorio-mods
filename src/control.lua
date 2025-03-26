@@ -1,17 +1,3 @@
-script.on_configuration_changed(function(changed_data)
-  local nauvis = game.surfaces.nauvis
-  -- Remove biters from nauvis
-  if
-    settings.startup["hexalith-nuclear-science-peaceful-nauvis"]
-    and nauvis ~= nil
-    and changed_data ~= nil
-    and (changed_data.mod_changes["hexalith-nuclear-science"] ~= nil or changed_data.mod_startup_settings_changed ~= nil)
-  then
-    for _, entity in pairs(nauvis.find_entities_filtered({force= "enemy"})) do entity.destroy() end
-    nauvis.no_enemies_mode = true
-  end
-end)
-
 -- Change starting evolution on Hexalith to be less hard on easier difficulties
 
 script.on_init(function()
