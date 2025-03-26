@@ -2,6 +2,7 @@ The following license applies to these files (in part, or completly)
 - src/compatibility/any-planet-start/prototypes/surfaces.lua
 - src/graphics/planet-hexalith.png
 - src/prototypes/surfaces.lua
+- src/tiles.lua
 
 MIT License
 
