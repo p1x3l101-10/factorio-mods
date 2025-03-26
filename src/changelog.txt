@@ -4,6 +4,7 @@ Date: 2025-03-2x
   Info:
     - Restructure internals (again)
     - Fix issue with bztitanium and screwing with centrifuge unlock
+    - Fix locale
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.4
 Date: 2025-03-26
