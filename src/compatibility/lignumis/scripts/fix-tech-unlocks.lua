@@ -1,11 +1,12 @@
 -- Re-lock lignumis because it looks bad
 local FixTechUnlocks = {}
 
-InitNew.on_init = function()
+FixTechUnlocks.on_init = function()
   if game.tick > 0 then return end
+  local force = game.forces.player
 
-  if not game.player.force.technologies["planet-discovery-nauvis"].researched then
-    game.player.force.technologies["planet-discovery-lignumis"].researched = false
+  if not force.technologies["planet-discovery-nauvis"].researched then
+    force.technologies["planet-discovery-lignumis"].researched = false
   end
 end
 
