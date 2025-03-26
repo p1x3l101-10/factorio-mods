@@ -1,4 +1,2 @@
-data:extend({
-  require("settings.peaceful-nauvis"),
-  require("hexalith-difficulty")
-})
+require("settings.peaceful-nauvis")
+require("hexalith-difficulty")
