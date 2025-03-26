@@ -3,6 +3,8 @@ Version: 0.1.4
 Date: 2025-03-26
   Info:
     - Change the name so that it has that planet icon that all the planet mods have
+    - Support lignumis
+    - Restructure internals
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.3
 Date: 2025-03-26
