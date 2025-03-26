@@ -81,6 +81,7 @@ function(add_mod)
     parse_json(${JQ_BIN} ${_ADD_MOD_INFO_FILE} ".name" MOD_NAME)
     parse_json(${JQ_BIN} ${_ADD_MOD_INFO_FILE} ".version" MOD_VERSION)
   endif()
+  list(APPEND CMAKE_CONFIGURE_DEPENDS "${_ADD_MOD_INFO_FILE}")
 
   if(NOT ${_ADD_MOD_NAME} STREQUAL ${MOD_NAME})
     message(WARNING "Mod target '${_ADD_MOD_NAME}' does not match internal name! (${MOD_NAME})")
