@@ -1,1 +1,1 @@
-require("compatibility.aai-industry.prototypes.entity-updates")
+require("prototypes.entity-updates")

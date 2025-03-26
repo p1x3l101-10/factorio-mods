@@ -1,1 +1,1 @@
-require("compatibility.aai-industry.prototypes.surfaces")
+require("prototypes.surfaces")

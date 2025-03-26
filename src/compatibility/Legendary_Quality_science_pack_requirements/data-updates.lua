@@ -1,1 +1,1 @@
-require("compatibility.Legendary_Quality_science_pack_requirements.prototypes.technology-updates")
+require("prototypes.technology-updates")
