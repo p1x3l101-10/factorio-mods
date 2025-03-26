@@ -13,5 +13,6 @@ dependencies:
   - "? Legendary_Quality_science_pack_requirements"
   - "? any-planet-start >= 1.1.7"
   - "? lignumis"
+  - "(?) bztitanium"
   - "! planet-hexalith"
 space_travel_required: true
