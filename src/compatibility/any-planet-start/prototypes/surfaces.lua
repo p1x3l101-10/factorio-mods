@@ -1,0 +1,1 @@
+APS.add_planet{name = "hexalith", filename = "__hexalith-nuclear-science__/compatibility/any-planet-start/dummy.lua", technology = "planet-discovery-hexalith"}
