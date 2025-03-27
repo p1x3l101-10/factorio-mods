@@ -98,9 +98,9 @@ function(add_mod)
     COMMAND_EXPAND_LISTS
   )
   # Add this target to all
-  add_custom_target("Mod" ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${MOD_NAME}_${MOD_VERSION}.zip")
+  add_custom_target("${_ADD_MOD_NAME}" ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${MOD_NAME}_${MOD_VERSION}.zip")
   # Add clean rule
-  set_target_properties("Mod" PROPERTIES ADDITIONAL_CLEAN_FILES "${CMAKE_CURRENT_BINARY_DIR}/worktree")
+  set_target_properties("${_ADD_MOD_NAME}" PROPERTIES ADDITIONAL_CLEAN_FILES "${CMAKE_CURRENT_BINARY_DIR}/worktree/${_ADD_MOD_NAME}")
 endfunction()
 
 macro(parse_json jq_bin json_file key variable)
