@@ -34,7 +34,7 @@ function(add_mod)
         OUTPUT "${MOD_ROOT}/${translated_mod_file}"
         DEPENDS "${file}"
         COMMAND mkdir -p "${MOD_ROOT}/${parent_dir}"
-        COMMAND ${YQ_BIN} -o=json -I0 "${MOD_ROOT}/${mod_file}" > "${MOD_ROOT}/${translated_mod_file}"
+        COMMAND ${YQ_BIN} -o=json -I0 "${file}" > "${MOD_ROOT}/${translated_mod_file}"
         COMMENT "Translating mod file: ${mod_file}"
       )
     else()
