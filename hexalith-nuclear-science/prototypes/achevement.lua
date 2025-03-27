@@ -10,7 +10,7 @@ data:extend{
     icons = {
       parts.base("copper"),
     }
-  }
+  },
   -- Research
   {
     type = "research-with-science-pack-achievement",
