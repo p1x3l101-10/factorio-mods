@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.6
+Date: 2025-03-26
+  Info:
+    - Fix a typo in worldgen-final-fixes.lua that made the setting hexalith-nuclear-science-peaceful-nauvis never be read
+---------------------------------------------------------------------------------------------------
 Version: 0.1.5
 Date: 2025-03-26
   Info:

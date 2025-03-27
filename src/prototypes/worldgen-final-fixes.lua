@@ -7,7 +7,7 @@ nauvis.map_gen_settings.autoplace_controls["uranium-ore"] = nil
 nauvis.map_gen_settings.autoplace_settings.entity.settings["uranium-ore"] = nil
 
 -- Apply nauvis difficulty changes
-if settings.startup["hexalith-nuclear-science-peaceful-nauvis"] then
+if settings.startup["hexalith-nuclear-science-peaceful-nauvis"].value then
   nauvis.pollutant_type = nil
   nauvis.map_gen_settings.autoplace_controls["enemy-base"] = nil
   nauvis.map_gen_settings.property_expression_names.enemy_base_frequency = 0
