@@ -26,7 +26,7 @@ function(add_mod)
     if(mod_file MATCHES "^(.*)?\.yaml$")
       # Change target list to reflect translated file
       list(POP_BACK mod_targets)
-      string(REPLACE ".yaml" ".json" translated_mod_file mod_file)
+      string(REPLACE ".yaml" ".json" translated_mod_file "${mod_file}")
       list(APPEND mod_targets "${MOD_ROOT}/${translated_mod_file}")
       # Create a translation target
       find_program(YQ_BIN NAMES yq REQUIRED)
