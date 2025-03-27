@@ -6,7 +6,5 @@
 [x] Add an easy mode for Hexalith
 [x] Allow having oil on a toned down Hexalith for flamethrowers
 [ ] Depend on having better weapons for getting to Hexalith?
-[ ] If moving legendary to before Aquillo (mod: Legendary_Quality_science_pack_requirements), make it before Nuclear Science too
-[x] Patch nuclear-science so that it does not break aai-industries
+[x] If moving legendary to before Aquillo (mod: Legendary_Quality_science_pack_requirements), make it before Nuclear Science too
 [ ] Patch nuclear-science so that the science packs (or centrifuge recipies) can't be crafted by hand
-[ ] Patch space-age-galore so that it does not break aai-industries
