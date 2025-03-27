@@ -9,6 +9,7 @@ dependencies:
   - atan-nuclear-science >= 0.3.3 # Science pack
   - PlanetsLib # Hexalith deps
   - alien-biomes-graphics # Hexalith deps
+  - p1x3l101-shared-parts # Need this for libs and graphics
   - "? aai-industry"
   - "? Legendary_Quality_science_pack_requirements"
   - "? any-planet-start >= 1.1.7"

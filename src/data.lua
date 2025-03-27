@@ -1,3 +1,4 @@
+require("prototypes.achevement")
 require("prototypes.surfaces")
 
 if mods["any-planet-start"] then

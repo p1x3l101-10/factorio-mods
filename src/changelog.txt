@@ -3,6 +3,7 @@ Version: 0.1.9
 Date: 2025-03-27
   Info:
     - Internal location changes
+    - Add an achevement for visiting Hexalith, the images are unfinished at the moment though
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.9
 Date: 2025-03-27
