@@ -6,3 +6,13 @@ add_mod(
   NAME "hexalith-nuclear-science"
   MOD_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/hexalith-nuclear-science
 )
+
+add_mod(
+  NAME "p1x3l101-tweaks"
+  MOD_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/tweaks
+)
+
+add_mod(
+  NAME "p1x3l101-shared-parts"
+  MOD_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/shared-parts
+)
