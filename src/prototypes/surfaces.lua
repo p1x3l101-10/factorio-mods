@@ -1,6 +1,6 @@
 require("tiles")
 --data.lua
-local asteroid_util = require("__space-age__.prototypes.planet.asteroid-spawn-definitions")
+local asteroid_util = require("__space-age__/prototypes/planet/asteroid-spawn-definitions")
 
 
 --START MAP GEN
