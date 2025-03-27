@@ -11,13 +11,15 @@ function(add_mod)
   file(MAKE_DIRECTORY ${MOD_ROOT})
 
   # Add files into the mod
+  # Get the base name
+  string(REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" "" MOD_BASEDIR "${_ADD_MOD_MOD_ROOT}")
   # Gather sources
   file(GLOB_RECURSE source_files CONFIGURE_DEPENDS "${_ADD_MOD_MOD_ROOT}/*")
   set(mod_targets)
   # Copy to mod root
   foreach(file IN LISTS source_files)
     # Get normal file names
-    string(REGEX REPLACE "^.*\/src\/" "" mod_file "${file}")
+    string(REGEX REPLACE "^.*\/${MOD_BASEDIR}\/" "" mod_file "${file}")
     # Save to a list
     list(APPEND mod_targets "${MOD_ROOT}/${mod_file}")
     # Get parent dirs
