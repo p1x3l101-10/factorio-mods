@@ -1,7 +1,7 @@
 function(add_mod)
   # Arguments
-  set(options INFO_IS_YAML)
-  set(oneValueArgs NAME MOD_ROOT INFO_FILE)
+  set(options)
+  set(oneValueArgs NAME MOD_ROOT)
   set(multiValueArgs)
   cmake_parse_arguments(_ADD_MOD "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN} )
 
@@ -14,8 +14,6 @@ function(add_mod)
   # Gather sources
   file(GLOB_RECURSE source_files CONFIGURE_DEPENDS "${_ADD_MOD_MOD_ROOT}/*")
   set(mod_targets)
-  # Remove info files
-  list(REMOVE_ITEM source_files "${_ADD_MOD_MOD_ROOT}/info.yaml" "${_ADD_MOD_MOD_ROOT}/info.json")
   # Copy to mod root
   foreach(file IN LISTS source_files)
     # Get normal file names
@@ -24,14 +22,31 @@ function(add_mod)
     list(APPEND mod_targets "${MOD_ROOT}/${mod_file}")
     # Get parent dirs
     get_filename_component(parent_dir "${mod_file}" DIRECTORY)
-    # Create the copy target
-    add_custom_command(
-      OUTPUT "${MOD_ROOT}/${mod_file}"
-      DEPENDS "${file}"
-      COMMAND mkdir -p "${MOD_ROOT}/${parent_dir}"
-      COMMAND cp "${file}" "${MOD_ROOT}/${mod_file}"
-      COMMENT "Copying mod file: ${mod_file}"
-    )
+    # Make sure that the file is not a yaml file, we need to translate those into json
+    if(mod_file MATCHES "^(.*)?\.yaml$")
+      # Change target list to reflect translated file
+      list(POP_BACK mod_targets)
+      string(REPLACE ".yaml" ".json" translated_mod_file mod_file)
+      list(APPEND mod_targets "${MOD_ROOT}/${translated_mod_file}")
+      # Create a translation target
+      find_program(YQ_BIN NAMES yq REQUIRED)
+      add_custom_command(
+        OUTPUT "${MOD_ROOT}/${translated_mod_file}"
+        DEPENDS "${file}"
+        COMMAND mkdir -p "${MOD_ROOT}/${parent_dir}"
+        COMMAND ${YQ_BIN} -o=json -I0 "${MOD_ROOT}/${mod_file}" > "${MOD_ROOT}/${translated_mod_file}"
+        COMMENT "Translating mod file: ${mod_file}"
+      )
+    else()
+      # Create the copy target
+      add_custom_command(
+        OUTPUT "${MOD_ROOT}/${mod_file}"
+        DEPENDS "${file}"
+        COMMAND mkdir -p "${MOD_ROOT}/${parent_dir}"
+        COMMAND cp "${file}" "${MOD_ROOT}/${mod_file}"
+        COMMENT "Copying mod file: ${mod_file}"
+      )
+    endif()
   endforeach()
   # License
   if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/LICENSE.md)
@@ -53,31 +68,23 @@ function(add_mod)
     )
     list(APPEND mod_targets "${MOD_ROOT}/CREDITS.md")
   endif()
-  # Copy correct info file to mod root
-  if(_ADD_MOD_INFO_IS_YAML)
-    find_program(YQ_BIN NAMES yq REQUIRED)
-    add_custom_command(
-      OUTPUT "${MOD_ROOT}/info.json"
-      DEPENDS "${_ADD_MOD_INFO_FILE}"
-      COMMAND ${YQ_BIN} -o=json -I0 "${_ADD_MOD_INFO_FILE}" > "${MOD_ROOT}/info.json"
-      COMMENT "Converting info file"
-    )
-  else()
-    find_program(JQ_BIN NAMES jq REQUIRED)
-    add_custom_command(
-      OUTPUT "${MOD_ROOT}/info.json"
-      DEPENDS "${_ADD_MOD_INFO_FILE}"
-      COMMAND jq --compact-output "${_ADD_MOD_INFO_FILE}" > "${MOD_ROOT}/info.json"
-      COMMENT "Converting info file"
-    )
-  endif()
-  list(APPEND mod_targets "${MOD_ROOT}/info.json")
 
+  # Find the info file
+  if(EXISTS "${_ADD_MOD_MOD_ROOT}/info.yaml")
+    set(_ADD_MOD_INFO_FILE "${_ADD_MOD_MOD_ROOT}/info.yaml")
+    set(_ADD_MOD_INFO_IS_YAML TRUE)
+  elseif(EXISTS "${_ADD_MOD_MOD_ROOT}/info.json")
+    set(_ADD_MOD_INFO_FILE "${_ADD_MOD_MOD_ROOT}/info.json")
+    set(_ADD_MOD_INFO_IS_YAML FALSE)
+  else()
+    message(FATAL_ERROR "mod info file not found")
+  endif()
   # Parse info for metadata
   if(_ADD_MOD_INFO_IS_YAML)
     parse_json(${YQ_BIN} ${_ADD_MOD_INFO_FILE} ".name" MOD_NAME)
     parse_json(${YQ_BIN} ${_ADD_MOD_INFO_FILE} ".version" MOD_VERSION)
   else()
+    find_program(JQ_BIN NAMES jq REQUIRED)
     parse_json(${JQ_BIN} ${_ADD_MOD_INFO_FILE} ".name" MOD_NAME)
     parse_json(${JQ_BIN} ${_ADD_MOD_INFO_FILE} ".version" MOD_VERSION)
   endif()
