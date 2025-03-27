@@ -3,10 +3,10 @@ The thumbnail for this mod uses assets from both atan-nuclear-science and planet
 ---
 
 The following license applies to these files (in part, or completly)
-- src/compatibility/any-planet-start/prototypes/surfaces.lua
-- src/graphics/planet-hexalith.png
-- src/prototypes/surfaces.lua
-- src/tiles.lua
+- compatibility/any-planet-start/prototypes/surfaces.lua
+- graphics/planet-hexalith.png
+- prototypes/surfaces.lua
+- tiles.lua
 
 MIT License
 

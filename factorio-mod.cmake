@@ -58,16 +58,6 @@ function(add_mod)
     )
     list(APPEND mod_targets "${MOD_ROOT}/LICENSE.md")
   endif()
-  # Credits
-  if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/CREDITS.md)
-    add_custom_command(
-      OUTPUT "${MOD_ROOT}/CREDITS.md"
-      DEPENDS "${file}"
-      COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/CREDITS.md" "${MOD_ROOT}/CREDITS.md"
-      COMMENT "Adding Credits"
-    )
-    list(APPEND mod_targets "${MOD_ROOT}/CREDITS.md")
-  endif()
 
   # Find the info file
   if(EXISTS "${_ADD_MOD_MOD_ROOT}/info.yaml")
