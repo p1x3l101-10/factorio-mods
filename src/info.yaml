@@ -13,6 +13,6 @@ dependencies:
   - "? Legendary_Quality_science_pack_requirements"
   - "? any-planet-start >= 1.1.7"
   - "? lignumis"
-  - "(?) bztitanium"
+  - "(?) bztitanium" # Added so that titanium loads first, it moves where the centrifuge is on the tech tree
   - "! planet-hexalith"
 space_travel_required: true
