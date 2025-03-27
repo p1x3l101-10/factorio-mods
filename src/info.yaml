@@ -6,13 +6,13 @@ description: Incorperate Nuclear Science into Hexalith
 factorio_version: "2.0"
 dependencies:
   - space-age >= 2.0.41
-  - atan-nuclear-science >= 0.3.3
-  - PlanetsLib
-  - alien-biomes-graphics
+  - atan-nuclear-science >= 0.3.3 # Science pack
+  - PlanetsLib # Hexalith deps
+  - alien-biomes-graphics # Hexalith deps
   - "? aai-industry"
   - "? Legendary_Quality_science_pack_requirements"
   - "? any-planet-start >= 1.1.7"
   - "? lignumis"
   - "(?) bztitanium" # Added so that titanium loads first, it moves where the centrifuge is on the tech tree
-  - "! planet-hexalith"
+  - "! planet-hexalith" # I kinda use the same things as this mod, so just to be safe
 space_travel_required: true
