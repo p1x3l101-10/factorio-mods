@@ -97,15 +97,8 @@ function(add_mod)
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/worktree
     COMMAND_EXPAND_LISTS
   )
-  # Create a link for the current version
-  add_custom_command(
-    OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/${MOD_NAME}_current.zip"
-    DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${MOD_NAME}_${MOD_VERSION}.zip"
-    COMMAND ln -sf "${MOD_NAME}_${MOD_VERSION}.zip" "${CMAKE_CURRENT_BINARY_DIR}/${MOD_NAME}_current.zip"
-    COMMENT "Linking current version"
-  )
   # Add this target to all
-  add_custom_target("Mod" ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${MOD_NAME}_current.zip")
+  add_custom_target("Mod" ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${MOD_NAME}_${MOD_VERSION}.zip")
   # Add clean rule
   set_target_properties("Mod" PROPERTIES ADDITIONAL_CLEAN_FILES "${CMAKE_CURRENT_BINARY_DIR}/worktree")
 endfunction()
