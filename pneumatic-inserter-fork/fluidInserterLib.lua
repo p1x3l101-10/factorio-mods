@@ -200,3 +200,5 @@ fluidInserterLib.createFluidInserterItem = function (target_name, inserter_src_n
 	end
 	return item
 end
+
+return fluidInserterLib
