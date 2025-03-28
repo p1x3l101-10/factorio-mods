@@ -3,8 +3,7 @@ Version: 0.1.9
 Date: 2025-03-28
   Info:
     - Internal location changes
-    - Add an achevement for visiting Hexalith, the images are unfinished at the moment though
-    - Hide uranium ore until you go to hexalith and get uranium-mining
+    - Add an achevement for visiting Hexalith, the images are unfinished at the moment though\
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.9
 Date: 2025-03-27
