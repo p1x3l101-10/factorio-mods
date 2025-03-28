@@ -8,6 +8,6 @@ util.delete_prerequisite("planet-discovery-hexalith", "power-armor-mk2")
 util.add_prerequisite("planet-discovery-hexalith", "space-platform-thruster")
 
 -- Hide uranium until you go to hexalith
-data.raw.recipe["uranium-ore"].enabled = false
-local tech = data.raw.technology["uranium-mining"]
-tech.effects[#tech.effects + 1 ] = { type = "unlock-recipe", recipe = "uranium-ore"}
+--data.raw.recipe["uranium-mining"].enabled = false
+--local tech = data.raw.technology["uranium-mining"]
+--tech.effects[#tech.effects + 1 ] = { type = "unlock-recipe", recipe = "uranium-mining"}

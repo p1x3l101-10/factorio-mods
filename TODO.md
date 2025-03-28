@@ -9,6 +9,7 @@
 [ ] Find some nice music
 [ ] Fix achevement graphics
 [ ] Create mipmaps
+[ ] Hide uranium ore until you unlock hexalith
 
 ---
 
