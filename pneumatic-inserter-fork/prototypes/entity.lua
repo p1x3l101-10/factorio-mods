@@ -1,4 +1,4 @@
-local util = require("__core__.lualib")
+local util = require("__core__/lualib/util")
 local fluidInserterLib = require("fluidInserterLib")
 
 data:extend({

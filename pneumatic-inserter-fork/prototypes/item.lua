@@ -1,4 +1,3 @@
-local util = require("__core__.lualib")
 local fluidInserterLib = require("fluidInserterLib")
 
 fluidInserterLib.icons_predefined["pneumatic-inserter"] = "__pneumatic-inserter-fork__/graphics/icons/pneumatic-inserter.png"
