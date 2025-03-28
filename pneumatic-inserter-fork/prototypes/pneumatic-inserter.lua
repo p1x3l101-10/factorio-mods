@@ -4,13 +4,12 @@ require "fluidInserterLib"
 fluidInserterLib.icons_predefined["pneumatic-inserter"] = "__pneumatic-inserter__/graphics/icons/pneumatic-inserter.png"
 fluidInserterLib.icons_predefined["pneumatic-long-handed-inserter"] = "__pneumatic-inserter__/graphics/icons/pneumatic-long-handed-inserter.png"
 
-local name = "pneumatic-inserter"
 local pipe = "gold-pipe"
 
 -- create using the lib
-local entity = fluidInserterLib.createFluidInserterEntity(name, "inserter", pipe, "steam", 165)
-local item = fluidInserterLib.createFluidInserterItem(name, "inserter", pipe, "steam")
-local unlockd_by_tech = {name}
+local entity = fluidInserterLib.createFluidInserterEntity("pneumatic-inserter", "inserter", pipe, "steam", 165)
+local item = fluidInserterLib.createFluidInserterItem("pneumatic-inserter", "inserter", pipe, "steam")
+local unlockd_by_tech = {"pneumatic-inserter"}
 
 -- fine tuning
 entity = util.merge({entity,	-- util is defined in factorio.core.lualib
@@ -25,24 +24,24 @@ entity = util.merge({entity,	-- util is defined in factorio.core.lualib
 -- add recipe
 local recipe = {
     type = "recipe",
-    name = name,
+    name = "pneumatic-inserter",
     enabled = false,
-    ingredients =
-    {
+    ingredients = {
       {pipe, 1},
       {"gold-plate", 1},
       {"burner-inserter", 1}
     },
-    result = name
+    results = {
+      { type = "item", name = "pneumatic-inserter", amount = 1 }
+    }
 }
 
 -- add to game
 data:extend({entity, item, recipe})
 
 
-local name = "pneumatic-long-handed-inserter"
-local entity = fluidInserterLib.createFluidInserterEntity(name, "burner-long-handed-inserter", pipe, "steam", 165)
-local item = fluidInserterLib.createFluidInserterItem(name, "burner-long-handed-inserter", pipe, "steam")
+local entity = fluidInserterLib.createFluidInserterEntity("burner-long-handed-inserter", "burner-long-handed-inserter", pipe, "steam", 165)
+local item = fluidInserterLib.createFluidInserterItem("burner-long-handed-inserter", "burner-long-handed-inserter", pipe, "steam")
 
 entity = util.merge({entity,
 	-- like long handed inserter
@@ -55,15 +54,17 @@ entity = util.merge({entity,
 
 data:extend({entity, item,
 	{
-	type = "recipe",
-	name = name,
-	enabled = false,
-	ingredients = {
-		{"wooden-gear-wheel", 1},
-	  {"gold-plate", 1},
-	  {"pneumatic-inserter", 1}
-	},
-	result = name
+	  type = "recipe",
+	  name = "pneumatic-long-handed-inserter",
+	  enabled = false,
+	  ingredients = {
+		  {"wooden-gear-wheel", 1},
+  	  {"gold-plate", 1},
+	    {"pneumatic-inserter", 1}
+  	},
+	  results = {
+      { type = "item", name = "pneumatic-long-handed-inserter", amount = 1 }
+    }
 	}
 })
 table.insert(unlockd_by_tech, name)
@@ -77,11 +78,9 @@ local tech = {
     icon_size = 128,
     icon = "__pneumatic-inserter__/graphics/technology/pneumatics.png",
     effects = {},
-    unit =
-    {
+    unit = {
       count = 20,
-      ingredients =
-      {
+      ingredients = {
         {"wood-science-pack", 1},
         {"steam-science-pack", 1}
       },
