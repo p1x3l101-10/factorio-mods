@@ -4,9 +4,9 @@ data:extend({
     name = "pneumatic-inserter",
     enabled = false,
     ingredients = {
-      { "gold-pipe", 1 },
-      { "gold-plate", 1 },
-      { "burner-inserter", 1 }
+      { type = "item", name = "gold-pipe",       amount = 1 },
+      { type = "item", name = "gold-plate",      amount = 1 },
+      { type = "item", name = "burner-inserter", amount = 1 }
     },
     results = {
       { type = "item", name = "pneumatic-inserter", amount = 1 }
@@ -17,9 +17,9 @@ data:extend({
     name = "pneumatic-long-handed-inserter",
     enabled = false,
     ingredients = {
-      { "wooden-gear-wheel", 1 },
-      { "gold-plate", 1 },
-      { "pnumatic-inserter", 1 }
+      { type = "item", name = "wooden-gear-wheel", amount = 1 },
+      { type = "item", name = "gold-plate",        amount = 1 },
+      { type = "item", name = "pnumatic-inserter", amount = 1 }
     },
     results = {
       { type = "item", name = "pneumatic-long-handed-inserter", amount = 1 }
