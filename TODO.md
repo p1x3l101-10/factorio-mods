@@ -22,3 +22,7 @@
 # tweaks
 
 [ ] Remove lignumis copper-ore tech when using aai-industries
+
+# pneumatic-inserter-fork
+
+[ ] Get nicer assets that aren't just horrible
