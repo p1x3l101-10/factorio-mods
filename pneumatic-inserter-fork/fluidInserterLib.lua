@@ -117,18 +117,20 @@ fluidInserterLib.createFluidEnergySource = function (fluid_name, optimal_tempera
 	end
 	return {
 		type = 'fluid',
+		fuel_categories = { fluid_name },
 		maximum_temperature = optimal_temperature,
 		burns_fluid = burns,
 		scale_fluid_usage = true,
+		effectivity = 1,
 		fluid_box = {
-			production_type = "input-output",
-			filter = fluid_name,
+			production_type = "input",
+			volume = 50,
 			base_area = 1,
 			height = 2,
 			base_level = -1,
 			pipe_connections = {
-				{ position = {1, 0} },
-				{ position = {-1, 0} }
+				{ flow_direction = "input-output", direction = defines.direction.east, position = {0.29, 0} },
+				{ flow_direction = "input-output", direction = defines.direction.west, position = {-0.29, 0} }
 			},
 			pipe_picture = images.pipe_picture,
 			pipe_covers = images.pipe_covers,
