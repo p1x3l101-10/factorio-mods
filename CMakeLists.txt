@@ -16,3 +16,8 @@ add_mod(
   NAME "p1x3l101-shared-parts"
   MOD_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/shared-parts
 )
+
+add_mod(
+  NAME "pneumatic-inserter-fork"
+  MOD_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/pneumatic-inserter-fork
+)
