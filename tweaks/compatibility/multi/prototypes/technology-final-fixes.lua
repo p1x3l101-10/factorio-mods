@@ -1,4 +1,3 @@
 if mods["alloy-smelting"] and mods["lignumis"] then
-  local tech = data.raw["technology"]["kiln-smelting"] 
-  tech.prerequisites[#tech.prerequisites + 1] = "planet-discovery-nauvis"
+  data.raw["technology"]["kiln-smelting"].prerequisites = { "planet-discovery-nauvis" }
 end
