@@ -1,0 +1,9 @@
+name: pneumatic-inserter-fork
+version: 0.1.0
+factorio_version: "2.0"
+title: Steam powered Inserter (fork)
+description: Adds a steam powered inserter. Unlocked by Pneumatics technology.
+author: p1x3l101
+dependencies:
+  - base
+  - lignumis
