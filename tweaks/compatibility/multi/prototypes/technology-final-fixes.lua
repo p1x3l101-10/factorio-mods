@@ -6,13 +6,16 @@ if mods["lignumis"] and mods["More_Ammo"] then
   local recipes = data.raw["recipe"]
   recipes["empty-recipe"].enabled = false
   recipes["empty-shotgun-recipe"].enabled = false
-  local iron_processing = data.raw["technology"]["iron-processing"]
-  local copper_processing = data.raw["technology"]["copper-processing"]
-  iron_processing.effects[#iron_processing.effects + 1] = { type = "unlock-recipe", recipe = "empty-recipe" }
-  copper_processing.effects[#copper_processing.effects + 1] = { type = "unlock-recipe", recipe = "empty-shotgun-recipe" }
+  local iron_processing = data.raw["technology"]["iron-processing"].effects
+  local copper_processing = data.raw["technology"]["copper-processing"].effects
+  iron_processing[#iron_processing + 1] = { type = "unlock-recipe", recipe = "empty-recipe" }
+  copper_processing[#copper_processing + 1] = { type = "unlock-recipe", recipe = "empty-shotgun-recipe" }
 end
 
 if mods["lignumis"] and mods["aai-industry"] then
-  local red_science = data.raw["technology"]["automation-science-pack"]
-  red_science.prerequisites[#red_science.prerequisites + 1] = { "copper-processing" }
+  local red_science = data.raw["technology"]["automation-science-pack"].prerequisites
+  if not red_science
+    red_science = {}
+  end
+  red_science[#red_science + 1] = { "copper-processing" }
 end
