@@ -10,3 +10,7 @@ if mods["lignumis"] and mods["More_Ammo"] then
   iron_processing.effects[#discover_nauvis.effects + 1] = { type = "unlock-recipe", recipe = "empty-recipe" }
   iron_processing.effects[#discover_nauvis.effects + 1] = { type = "unlock-recipe", recipe = "empty-shotgun-recipe" }
 end
+
+if mods["lignumis"] and mods["aai-industry"] then
+  data.raw["technology"]["automation-science-pack"].prerequisites = { "copper-processing" }
+end
