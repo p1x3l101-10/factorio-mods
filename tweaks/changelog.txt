@@ -1,6 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.3
 Date: 2025-03-29
+  Info:
+    - Internal cleanup
+    - Use a library to do my hard work
   Fixes:
     - Messed up the red science pack prereqs when using aai-industry and lignumis
 ---------------------------------------------------------------------------------------------------
