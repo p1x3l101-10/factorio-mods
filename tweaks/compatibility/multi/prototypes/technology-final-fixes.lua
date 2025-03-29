@@ -7,8 +7,9 @@ if mods["lignumis"] and mods["More_Ammo"] then
   recipes["empty-recipe"].enabled = false
   recipes["empty-shotgun-recipe"].enabled = false
   local iron_processing = data.raw["technology"]["iron-processing"]
+  local copper_processing = data.raw["technology"]["copper-processing"]
   iron_processing.effects[#iron_processing.effects + 1] = { type = "unlock-recipe", recipe = "empty-recipe" }
-  iron_processing.effects[#iron_processing.effects + 1] = { type = "unlock-recipe", recipe = "empty-shotgun-recipe" }
+  copper_processing.effects[#copper_processing.effects + 1] = { type = "unlock-recipe", recipe = "empty-shotgun-recipe" }
 end
 
 if mods["lignumis"] and mods["aai-industry"] then
