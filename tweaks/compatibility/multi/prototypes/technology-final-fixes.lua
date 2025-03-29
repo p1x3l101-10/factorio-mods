@@ -13,5 +13,6 @@ if mods["lignumis"] and mods["More_Ammo"] then
 end
 
 if mods["lignumis"] and mods["aai-industry"] then
-  data.raw["technology"]["automation-science-pack"].prerequisites = { "copper-processing" }
+  local red_science = data.raw["technology"]["automation-science-pack"]
+  red_science.prerequisites[#red_science.prerequisites + 1] = { "copper-processing" }
 end
