@@ -8,7 +8,7 @@ end
 if mods["lignumis"] and mods["More_Ammo"] then
   Recipe:new("empty-recipe"):unlockedByTechnology("iron-processing")
   Recipe:new("empty-shotgun-recipe"):unlockedByTechnology("iron-processing")
-  if settings.startup["high-capacity-magazines"] then
+  if settings.startup["high-capacity-magazines"].value then
     Recipe:new("empty-high-capacity-magazine"):unlockedByTechnology("iron-processing")
     Recipe:new("empty-high-capacity-shotgun-shell"):unlockedByTechnology("iron-processing")
   end
