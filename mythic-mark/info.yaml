@@ -1,0 +1,11 @@
+name: mythic-mark-quality
+version: 0.0.1
+title: Mythic Mark Quality
+author: p1x3l101
+description: Renames mythic quality to Mk6
+factorio_version: "2.0"
+dependancies:
+  - quality
+  - mythic-quality
+  - "~ mark-quality"
+quality_required: true

@@ -1,0 +1,1 @@
+data.raw.quality["mythic"].localised_name = "Mk6"

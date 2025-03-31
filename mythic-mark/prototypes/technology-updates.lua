@@ -1,0 +1,1 @@
+data.raw.technology["mythic-quality"].icon = "__mythic-mark-quality__/graphics/technology/mythic-quality.png"

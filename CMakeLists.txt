@@ -21,3 +21,8 @@ add_mod(
   NAME "pneumatic-inserter-fork"
   MOD_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/pneumatic-inserter-fork
 )
+
+add_mod(
+  NAME "mythic-mark-quality"
+  MOD_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/mythic-mark
+)
