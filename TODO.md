@@ -30,3 +30,9 @@
 # mythic-mark
 
 [ ] Change the all-quality graphic to reflect mythic
+[ ] Get a good icon (that reflects the current mk6 quality)
+
+# unlockable-qualities
+
+[ ] Get a good icon
+[ ] Make tech icons, and dont use placeholders

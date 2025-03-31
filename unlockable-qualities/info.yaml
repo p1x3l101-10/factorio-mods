@@ -1,0 +1,11 @@
+name: unlockable-qualities
+version: 0.0.1
+title: Unlockable qualities
+author: p1x3l101
+description: Makes all the qualities require research, and not just the module
+factorio_version: "2.0"
+dependencies:
+  - quality
+  - "? mark-quality-names"
+  - "! QualityAssurance"
+quality_required: true

@@ -8,4 +8,5 @@ dependencies:
   - quality
   - mythic-quality
   - "~ mark-quality-names"
+  - "(?) unlockable-qualities"
 quality_required: true
