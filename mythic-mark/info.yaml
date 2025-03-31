@@ -7,5 +7,5 @@ factorio_version: "2.0"
 dependancies:
   - quality
   - mythic-quality
-  - "~ mark-quality"
+  - "~ mark-quality-names"
 quality_required: true
