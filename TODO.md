@@ -26,3 +26,7 @@
 # pneumatic-inserter-fork
 
 [ ] Get nicer assets that aren't just horrible
+
+# mythic-mark
+
+[ ] Change the all-quality graphic to reflect mythic
