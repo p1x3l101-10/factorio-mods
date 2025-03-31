@@ -1,5 +1,4 @@
-data:extend
-({
+data:extend({
   {
     type = "technology",
     name = "uncommon-quality",
@@ -21,7 +20,7 @@ data:extend
       },
       time = 30
     }
-  }
+  },
   {
     type = "technology",
     name = "rare-quality",
@@ -47,9 +46,9 @@ data:extend
   }
 })
 
-data.raw.technology["quality-module"].effects = 
-local epic_qual = data.raw.technology["epic-quality"].prerequisites = {{
+data.raw.technology["quality-module"].effects = {{
   type = "unlock-recipe",
   recipe = "quality-module"
 }}
-epic_qual[#epic_qual + 1] = { "rare-quality" }
+local epic_qual = data.raw.technology["epic-quality"].prerequisites
+epic_qual[#epic_qual + 1] = "rare-quality"
