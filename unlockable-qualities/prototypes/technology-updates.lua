@@ -47,5 +47,9 @@ data:extend
   }
 })
 
-local epic_qual = data.raw.technology["epic-quality"].prerequisites
+data.raw.technology["quality-module"].effects = 
+local epic_qual = data.raw.technology["epic-quality"].prerequisites = {{
+  type = "unlock-recipe",
+  recipe = "quality-module"
+}}
 epic_qual[#epic_qual + 1] = { "rare-quality" }
