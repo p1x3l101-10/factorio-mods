@@ -1,4 +1,4 @@
-local util = require("functions").te
+local util = require("functions").tech
 if settings.startup["basic-science-changes"].value then
   util.set_category("advanced-military-science-pack", "centrifuging")
   -- Remove other recipes
