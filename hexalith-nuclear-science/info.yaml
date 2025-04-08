@@ -1,5 +1,5 @@
 name: hexalith-nuclear-science
-version: 0.1.9
+version: 0.1.10
 title: 🌐 Hexalith Nuclear Science
 author: p1x3l101
 description: Incorperate Nuclear Science into Hexalith
@@ -12,6 +12,7 @@ dependencies:
   - p1x3l101-shared-parts # Need this for libs and graphics
   - "? aai-industry"
   - "? Legendary_Quality_science_pack_requirements"
+  - "? extraplanetary-production"
   - "? any-planet-start >= 1.1.7"
   - "(?) bztitanium" # Added so that titanium loads first, it moves where the centrifuge is on the tech tree
   - "! planet-hexalith" # I kinda use the same things as this mod, so just to be safe
