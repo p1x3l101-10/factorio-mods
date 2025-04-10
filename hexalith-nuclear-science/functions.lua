@@ -39,4 +39,11 @@ function M.tech.unmake_essential(tech_name)
   data.raw["technology"][tech_name].essential = false
 end
 
+function M.tech.disable_tech(tech_name)
+  if not data.raw["technology"][tech_name] then
+    return
+  end
+  data.raw["technology"][tech_name].enabled = false
+end
+
 return M
