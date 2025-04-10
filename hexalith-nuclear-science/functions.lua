@@ -32,4 +32,11 @@ function M.entity.remove_crafting_category(entity_type, entity_name, category)
   end
 end
 
+function M.tech.unmake_essential(tech_name)
+  if not data.raw["technology"][tech_name] then
+    return
+  end
+  data.raw["technology"][tech_name].essential = false
+end
+
 return M

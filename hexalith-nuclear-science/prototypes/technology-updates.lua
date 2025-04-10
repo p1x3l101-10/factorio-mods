@@ -11,3 +11,7 @@ util.add_prerequisite("planet-discovery-hexalith", "space-platform-thruster")
 --data.raw.recipe["uranium-mining"].enabled = false
 --local tech = data.raw.technology["uranium-mining"]
 --tech.effects[#tech.effects + 1 ] = { type = "unlock-recipe", recipe = "uranium-mining"}
+
+-- Hide nonessential techs
+util.unmake_essential("uranium-mining")
+util.unmake_essential("uranium-processing")
