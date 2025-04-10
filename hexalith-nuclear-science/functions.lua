@@ -44,6 +44,7 @@ function M.tech.disable_tech(tech_name)
     return
   end
   data.raw["technology"][tech_name].enabled = false
+  data.raw["technology"][tech_name].hidden = true
 end
 
 return M
