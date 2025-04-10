@@ -4,6 +4,7 @@ Date: 2025-04-08
   Info:
     - Remove nonessential techs from essential list
     - Compat with SchallUraniumProcessing
+    - Fix issues with 2.0.43
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.10
 Date: 2025-04-08
