@@ -1,1 +1,1 @@
-settings.startup["uranium-recipe"].hidden = true
+data.raw["bool-setting"]["uranium-recipe"].hidden = true
