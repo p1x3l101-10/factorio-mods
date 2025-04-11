@@ -6,6 +6,11 @@ if mods["SchallUraniumProcessing"] then
   uraniumRocketItem = "uranium-concentrate"
 end
 
+local rocketFuel = "rocket-fuel"
+if settings.startup["expensive-mode"].value then
+  rocketFuel = "nuclear-fuel"
+end
+
 -- Create hexalith rocket recipe
 data:extend({
   {
@@ -19,9 +24,9 @@ data:extend({
     category = "centrifuging",
     subgroup = "space-rocket",
     ingredients = {
-      {type = "item", name = "processing-unit", amount = 2*settings.startup["external-rocket-part-cost-setting"].value },
-      {type = "item", name = "low-density-structure", amount = 2*settings.startup["external-rocket-part-cost-setting"].value },
-      {type = "item", name = "nuclear-fuel", amount = settings.startup["external-rocket-part-cost-setting"].value },
+      {type = "item", name = "processing-unit", amount = settings.startup["external-rocket-part-cost-setting"].value },
+      {type = "item", name = "low-density-structure", amount = settings.startup["external-rocket-part-cost-setting"].value },
+      {type = "item", name = rocketFuel, amount = settings.startup["external-rocket-part-cost-setting"].value },
       {type = "item", name = uraniumRocketItem, amount = 10*settings.startup["external-rocket-part-cost-setting"].value }
     },
     results = {{type="item", name="rocket-part", amount=1}},
@@ -49,6 +54,11 @@ data:extend({
 -- Remove uranium from nauvis rocket
 util.delete_ingriedent("rocket-part-ext", "uranium-238")
 util.set_category("rocket-part-ext", "crafting")
+-- Fix nauvis rocket parts
+if settings.startup["expensive-mode"].value then
+  util.delete_ingriedent("rocket-part-ext", "nuclear-fuel")
+  util.add_ingredient("rocket-part-ext", {type = "item", name = "rocket-fuel", amount = 5*settings.startup["external-rocket-part-cost-setting"].value })
+end
 util.set_surface_conditions("rocket-part-ext", {
   {
     property = "pressure",
