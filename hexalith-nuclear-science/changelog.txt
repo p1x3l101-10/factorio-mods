@@ -1,5 +1,11 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.11
+Date: 2025-04-11
+  Info:
+    - Add compat with diverse-external-rocket-parts
+    - Update Nauvis's description
+---------------------------------------------------------------------------------------------------
+Version: 0.1.11
 Date: 2025-04-08
   Info:
     - Remove nonessential techs from essential list

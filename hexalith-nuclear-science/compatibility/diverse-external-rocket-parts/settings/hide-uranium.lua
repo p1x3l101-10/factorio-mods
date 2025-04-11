@@ -1,0 +1,1 @@
+settings.startup["uranium-recipe"].hidden = true
