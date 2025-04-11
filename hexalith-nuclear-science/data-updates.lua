@@ -10,5 +10,5 @@ if mods["SchallUraniumProcessing"] then
   require("compatibility.SchallUraniumProcessing.data-updates")
 end
 if mods["diverse-external-rocket-parts"] then
-  require("compatibility.diverse-external-rocket-parts")
+  require("compatibility.diverse-external-rocket-parts.data-updates")
 end
