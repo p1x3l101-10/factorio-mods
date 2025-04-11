@@ -38,3 +38,5 @@ if mods["diverse-external-rocket-parts"] and mods["lignumis"] then
     }
   })
 end
+
+table.insert(data.raw.technology["planet-discovery-lignumis"].effects,{ type = "unlock-recipe", recipe = "rocket-part-lignumis" })
