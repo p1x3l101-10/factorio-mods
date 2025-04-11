@@ -97,6 +97,7 @@ function(add_mod)
     DEPENDS ${mod_targets}
     COMMAND ${ZIP_BIN} -9 -r -q "${CMAKE_CURRENT_BINARY_DIR}/${MOD_NAME}_${MOD_VERSION}.zip" ${files_to_zip}
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/worktree
+    COMMENT "Compressing ${CMAKE_CURRENT_BINARY_DIR}/${MOD_NAME}_${MOD_VERSION}.zip"
     COMMAND_EXPAND_LISTS
   )
   # Add this target to all
