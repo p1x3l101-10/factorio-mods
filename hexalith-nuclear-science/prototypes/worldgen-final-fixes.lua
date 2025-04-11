@@ -11,6 +11,7 @@ if settings.startup["hexalith-nuclear-science-peaceful-nauvis"].value then
   nauvis.pollutant_type = nil
   nauvis.map_gen_settings.autoplace_controls["enemy-base"] = nil
   nauvis.map_gen_settings.property_expression_names.enemy_base_frequency = 0
+  nauvis.localised_description = {"space-location-description.nauvis-safe"}
 end
 
 -- Put oil on hexalith
