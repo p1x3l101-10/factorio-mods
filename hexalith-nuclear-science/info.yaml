@@ -11,7 +11,7 @@ dependencies:
   - alien-biomes-graphics # Hexalith deps
   - p1x3l101-shared-parts # Need this for libs and graphics
   - "? aai-industry"
-  - "? diverse-external-rocket-parts"
+  - "? diverse-external-rocket-parts >= 0.2.4"
   - "? Legendary_Quality_science_pack_requirements"
   - "? extraplanetary-production"
   - "? any-planet-start >= 1.1.7"
