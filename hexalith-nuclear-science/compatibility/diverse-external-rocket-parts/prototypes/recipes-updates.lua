@@ -1,7 +1,12 @@
 local util = require("functions").recipe
 
--- Create hexalith rocket recipe
+-- Pick the rocket part ingredient
+local uraniumRocketItem = "uranium-238"
+if mods["SchallUraniumProcessing"] then
+  uraniumRocketItem = "uranium-concentrate"
+end
 
+-- Create hexalith rocket recipe
 data:extend({
   type = "recipe",
   name = "rocket-part-hexalith",
@@ -16,7 +21,7 @@ data:extend({
     {type = "item", name = "processing-unit", amount = 2*settings.startup["external-rocket-part-cost-setting"].value },
     {type = "item", name = "low-density-structure", amount = 2*settings.startup["external-rocket-part-cost-setting"].value },
     {type = "item", name = "nuclear-fuel", amount = settings.startup["external-rocket-part-cost-setting"].value },
-    {type = "item", name = "uranium-238", amount = 10*settings.startup["external-rocket-part-cost-setting"].value }
+    {type = "item", name = uraniumRocketItem, amount = 10*settings.startup["external-rocket-part-cost-setting"].value }
   },
   results = {{type="item", name="rocket-part", amount=1}},
   allow_productivity = true,
@@ -42,6 +47,18 @@ data:extend({
 -- Remove uranium from nauvis rocket
 util.delete_ingriedent("rocket-part-ext", "uranium-238")
 util.set_category("rocket-part-ext", "crafting")
+util.set_surface_conditions("rocket-part-ext", {
+  {
+    property = "pressure",
+    min = 1000,
+    max = 1000
+  },
+  { -- Ensure nauvis
+    property = "gravity",
+    min = 10,
+    max = 10
+  }
+})
 
 -- Add recipe to relivant techs
 table.insert(data.raw.technology["uranium-processing"].effects,{ type = "unlock-recipe", recipe = "rocket-part-hexalith" })

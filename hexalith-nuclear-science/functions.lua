@@ -54,6 +54,12 @@ function M.recipe.delete_ingriedent(recipe_name, ingredient_name)
   end
 end
 
+function M.recipe.set_surface_conditions(recipe_name, surface_conditions)
+  local recipe = data.raw["recipe"][recipe_name]
+  if not recipe then return end
+  recipe.surface_conditions = surface_conditions
+end
+
 function M.entity.remove_crafting_category(entity_type, entity_name, category)
   if not data.raw[entity_type] then
     return
