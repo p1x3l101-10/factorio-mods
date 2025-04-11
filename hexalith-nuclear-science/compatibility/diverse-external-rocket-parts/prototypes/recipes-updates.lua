@@ -41,6 +41,7 @@ data:extend({
 
 -- Remove uranium from nauvis rocket
 util.delete_ingriedent("rocket-part-ext", "uranium-238")
+util.set_category("rocket-part-ext", "crafting")
 
 -- Add recipe to relivant techs
 table.insert(data.raw.technology["uranium-processing"].effects,{ type = "unlock-recipe", recipe = "rocket-part-hexalith" })
