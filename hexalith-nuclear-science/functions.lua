@@ -22,7 +22,7 @@ function M.recipe.has_ingredient(recipe_name, ingredient_name)
   local recipe = data.raw["recipe"][recipe_name]
   if not recipe then return end
   for _, extant in pairs(recipe.ingredients) do
-    if extant["name"] == ingredient[1] then
+    if extant["name"] == ingredient_name then
         return true
     end
   end
