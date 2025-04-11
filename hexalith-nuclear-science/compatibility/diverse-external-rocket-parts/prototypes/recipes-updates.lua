@@ -29,7 +29,7 @@ data:extend({
     allow_quality = false,
     icons = {
       {icon = "__base__/graphics/icons/rocket-part.png", icon_size=64},
-      {icon = "__hexalith-nuclear-science__/graphics/technology/hexalith.png", icon_size=64, scale=0.25, shift={-8,8}}
+      {icon = "__hexalith-nuclear-science__/graphics/technology/hexalith.png", scale=0.25, shift={-8,8}}
     },
     surface_conditions = {
       {
