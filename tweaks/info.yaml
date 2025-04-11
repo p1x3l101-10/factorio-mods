@@ -1,5 +1,5 @@
 name: p1x3l101-tweaks
-version: 0.0.6
+version: 0.0.7
 title: Pixel's mod tweaks
 author: p1x3l101
 description: A collection of (opinionated) tweaks to mods that let them work better together
@@ -13,3 +13,4 @@ dependencies:
   - "? aai-industry"
   - "? aai-loaders"
   - "? crushing-industry"
+  - "? diverse-external-rocket-parts"
