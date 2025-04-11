@@ -82,11 +82,23 @@ function M.tech.unmake_essential(tech_name)
 end
 
 function M.tech.disable_tech(tech_name)
-  if not data.raw["technology"][tech_name] then
-    return
+  local tech = data.raw["technology"][tech_name]
+  if not tech then return end
+  tech.enabled = false
+  tech.hidden = true
+  if tech.research_trigger then
+    tech.research_trigger = nil
   end
-  data.raw["technology"][tech_name].enabled = false
-  data.raw["technology"][tech_name].hidden = true
+  tech.unit = { -- dummy filler
+    count = 1000000,
+    time = 1000000,
+    ingredients = {
+      { "automation-science-pack", 1 },
+      { "logistic-science-pack", 1 },
+      { "chemical-science-pack", 1 },
+      { "nuclear-science-pack", 1 }
+    }
+  }
 end
 
 return M
