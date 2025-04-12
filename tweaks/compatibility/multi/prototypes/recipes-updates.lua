@@ -36,6 +36,7 @@ if mods["diverse-external-rocket-parts"] then
     ligRocket:apply()
   end
   if mods["maraxsis"] then
+    data.raw["recipes"]["maraxsis-rocket-part"] = nil
     local waterRocket = rocketItem:new("maraxis")
     waterRocket:setIngredients(
       {
