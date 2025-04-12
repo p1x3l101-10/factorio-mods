@@ -1,6 +1,6 @@
 local function discover_applied_surfaces()
   local out = {}
-  for name, proto in pairs(game.virtual_signal_prototypes) do
+  for name, proto in pairs(game.virtual_signal) do
     local surface = name:match("^shared%-lib%-rocketpart%-surface%-(.+)")
     if surface then
     table.insert(out, surface)
