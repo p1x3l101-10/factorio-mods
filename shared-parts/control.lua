@@ -1,6 +1,6 @@
 local function discover_applied_surfaces()
   local out = {}
-  if not script.active_mods["diverse-external-rocket-parts"] then return out else
+  if not script.active_mods["diverse-external-rocket-parts"] then return out end
   for name, proto in pairs(game.virtual_signal_prototypes) do
     local surface = name:match("^shared%-lib%-rocketpart%-surface%-(.+)")
     if surface then
