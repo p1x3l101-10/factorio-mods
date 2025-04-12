@@ -22,6 +22,7 @@ if mods["maraxsis"] and mods["diverse-external-rocket-parts"] then
   data.raw["recipe"]["maraxsis-rocket-part"] = nil
 
   -- New rocket part
+  local rocketItem = require("__p1x3l101-shared-parts__/lib").optional.diverse_external_rocket_parts
   local waterRocket = rocketItem:new("maraxsis")
     waterRocket:setIngredients(
       {

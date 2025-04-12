@@ -1,6 +1,6 @@
 if mods["diverse-external-rocket-parts"] then
-  local rocketItem = require("__p1x3l101-shared-parts__/lib").optional.diverse_external_rocket_parts
   if mods["lignumis"] then
+    local rocketItem = require("__p1x3l101-shared-parts__/lib").optional.diverse_external_rocket_parts
     local ligRocket = rocketItem:new("lignumis")
     ligRocket:setIngredients(
       {
