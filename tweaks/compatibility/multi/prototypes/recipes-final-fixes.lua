@@ -43,7 +43,7 @@ if mods["maraxsis"] and mods["diverse-external-rocket-parts"] then
   waterRocket:addPlanetImage("__planet-maraxis__/graphics/technology/maraxis.png", 256)
   waterRocket:unlockedBy("maraxsis-project-seadragon")
   waterRocket:setCrafter("maraxsis-hydro-plant-or-assembling")
-  waterRocket:surfaceConditions(
+  waterRocket:add_surfaceConditions(
     {
       { property = "pressure", min = 200000, max = 200000 }
     }
