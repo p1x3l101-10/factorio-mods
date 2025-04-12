@@ -60,7 +60,7 @@ function rocketItem:setIngredients(ingredients, expensiveIngredients)
 end
 
 function rocketItem:add_surfaceConditions(conditions)
-  table.insert(self.surfaceConditions , conditions)
+  self.surfaceConditions = conditions
   return self
 end
 
