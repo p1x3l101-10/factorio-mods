@@ -22,7 +22,7 @@ if mods["maraxsis"] and mods["diverse-external-rocket-parts"] then
   data.raw["recipe"]["maraxsis-rocket-part"] = nil
 
   -- New rocket part
-  local waterRocket = rocketItem:new("maraxis")
+  local waterRocket = rocketItem:new("maraxsis")
     waterRocket:setIngredients(
       {
         { "processing-unit", 2 },
