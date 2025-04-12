@@ -96,14 +96,17 @@ function rocketItem:apply()
   end
   if self.surfaceConditions then
     self.prototype.surface_conditions = self.surfaceConditions
+  end
+  if self.category then
+    self.prototype.category = self.category
   else
-    self.prototype.surface_conditions = "crafting"
+    self.prototype.category = "crafting"
   end
   self.prototype.category = self.category
   -- Add data to game
   data:extend({ self.prototype })
   local name = "rocket-part-" .. self.surfaceName
-  if self.unlockedBy ~= "UNSET" then
+  if self.unlockedBy then
     table.insert(data.raw.technology[self.unlockedBy].effects,{ type = "unlock-recipe", recipe = name })
   end
   table.insert(data.raw.technology["rocket-part-productivity"].effects, { type = "change-recipe-productivity", recipe = name, change = 0.1 })
