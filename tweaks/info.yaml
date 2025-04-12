@@ -6,6 +6,7 @@ description: A collection of (opinionated) tweaks to mods that let them work bet
 factorio_version: "2.0"
 dependencies:
   - cf-lib
+  - p1x3l101-shared-resources
   - "? lignumis"
   - "? More_Ammo"
   - "? wood-military"
@@ -14,3 +15,4 @@ dependencies:
   - "? aai-loaders"
   - "? crushing-industry"
   - "? diverse-external-rocket-parts"
+  - "? maraxis"
