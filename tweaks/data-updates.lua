@@ -1,0 +1,1 @@
+require("compatibility.multi.data-updates")
