@@ -33,9 +33,9 @@ function rocketItem:new(surface_name)
     planetImage = {
       image = {},
       added = false
-    }
-  },
-  surfaceConditions = {}
+    },
+    surfaceConditions = {}
+  }
   setmetatable(obj, self)
   self.__index = self
   return obj
