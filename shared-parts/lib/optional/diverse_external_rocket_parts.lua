@@ -81,10 +81,12 @@ end
 
 function rocketItem:unlockedBy(tech_name)
   self.unlockedBy = tech_name
+  return self
 end
 
 function rocketItem:setCrafter(category)
   self.category = category
+  return self
 end
 
 function rocketItem:apply()
