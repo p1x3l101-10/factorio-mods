@@ -36,7 +36,7 @@ if mods["maraxsis"] and mods["diverse-external-rocket-parts"] then
       { "low-density-structure", 3 },
       { "rocket-fuel", 3 },
       { "maraxsis-glass-panes", 5 },
-      { "maraxsis-salt", },
+      { "maraxsis-salt", 1 },
       { "maraxsis-super-sealant-substance", 5 }
     }
   )
