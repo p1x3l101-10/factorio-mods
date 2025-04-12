@@ -28,12 +28,13 @@ if mods["maraxsis"] and mods["diverse-external-rocket-parts"] then
   )
   waterRocket:apply()
   -- Disable normal maraxis recipe
-  local function removeEffect(techName, effect)
+  local function removeEffect(techName, type, name)
     local old_effects = data.raw["technology"][techName].effects
     local deleted = false
     local new_effects = {}
-    for _, effect in pairs(old_effects) do
-      if effect[1] == effect then
+    for i = #old_effects, 1, -1 do
+      local effect = old_effects[i]
+      if effect.type == type and effect.name == name then
         deleted = true
       else
         new_effects[#new_effects + 1] = effect
@@ -44,8 +45,8 @@ if mods["maraxsis"] and mods["diverse-external-rocket-parts"] then
       return deleted
     end
   end
-  removeEffect("maraxsis-project-seadragon", "maraxsis-rocket-part")
-  removeEffect("rocket-part-productivity", "maraxsis-rocket-part")
+  removeEffect("maraxsis-project-seadragon", "recipe", "maraxsis-rocket-part")
+  removeEffect("rocket-part-productivity", "change-recipe-productivity", "maraxsis-rocket-part")
   data.raw.recipe["rocket-part"].surface_conditions = nil
   data.raw["recipe"]["maraxsis-rocket-part"] = nil
 end
