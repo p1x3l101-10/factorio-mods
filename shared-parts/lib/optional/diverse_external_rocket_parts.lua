@@ -33,9 +33,7 @@ function rocketItem:new(surface_name)
       image = {},
       added = false
     },
-    surfaceConditions = {},
-    category = "crafting",
-    unlockedBy = "UNSET"
+    surfaceConditions = {}
   }
   setmetatable(obj, self)
   self.__index = self
@@ -96,7 +94,11 @@ function rocketItem:apply()
   else
     self.prototype.ingredients = self.ingredients.processed
   end
-  self.prototype.surface_conditions = self.surfaceConditions
+  if self.surfaceConditions then
+    self.prototype.surface_conditions = self.surfaceConditions
+  else
+    self.prototype.surface_conditions = "crafting"
+  end
   self.prototype.category = self.category
   -- Add data to game
   data:extend({ self.prototype })
