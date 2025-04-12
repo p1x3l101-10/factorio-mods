@@ -1,26 +1,4 @@
 if mods["maraxsis"] and mods["diverse-external-rocket-parts"] then
-  -- Disable normal maraxis recipe
-  local function removeEffect(techName, effect)
-    local old_effects = data.raw["technology"][techName].effects
-    local deleted = false
-    local new_effects = {}
-    for _, effect in pairs(old_effects) do
-      if effect[1] == effect then
-        deleted = true
-      else
-        new_effects[#new_effects + 1] = effect
-      end
-      if deleted then
-        old_effects = new_effects
-      end
-      return deleted
-    end
-  end
-  removeEffect("maraxsis-project-seadragon", "maraxsis-rocket-part")
-  removeEffect("rocket-part-productivity", "maraxsis-rocket-part")
-  data.raw.recipe["rocket-part"].surface_conditions = nil
-  data.raw["recipe"]["maraxsis-rocket-part"] = nil
-
   -- New rocket part
   local rocketItem = require("__p1x3l101-shared-parts__/lib").optional.diverse_external_rocket_parts
   local waterRocket = rocketItem:new("maraxsis")
@@ -49,4 +27,25 @@ if mods["maraxsis"] and mods["diverse-external-rocket-parts"] then
     }
   )
   waterRocket:apply()
+  -- Disable normal maraxis recipe
+  local function removeEffect(techName, effect)
+    local old_effects = data.raw["technology"][techName].effects
+    local deleted = false
+    local new_effects = {}
+    for _, effect in pairs(old_effects) do
+      if effect[1] == effect then
+        deleted = true
+      else
+        new_effects[#new_effects + 1] = effect
+      end
+      if deleted then
+        old_effects = new_effects
+      end
+      return deleted
+    end
+  end
+  removeEffect("maraxsis-project-seadragon", "maraxsis-rocket-part")
+  removeEffect("rocket-part-productivity", "maraxsis-rocket-part")
+  data.raw.recipe["rocket-part"].surface_conditions = nil
+  data.raw["recipe"]["maraxsis-rocket-part"] = nil
 end
