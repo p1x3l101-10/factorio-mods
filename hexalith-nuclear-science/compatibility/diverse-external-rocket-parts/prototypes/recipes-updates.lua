@@ -1,4 +1,5 @@
 local util = require("functions").recipe
+local rocketItem = require("__p1x3l101-shared-parts__/lib").optional.diverse_external_rocket_parts
 
 -- Pick the rocket part ingredient
 local uraniumRocketItem = "uranium-238"
@@ -6,50 +7,38 @@ if mods["SchallUraniumProcessing"] then
   uraniumRocketItem = "uranium-concentrate"
 end
 
-local rocketFuel = "rocket-fuel"
-if settings.startup["expensive-mode"].value then
-  rocketFuel = "nuclear-fuel"
-end
-
 -- Create hexalith rocket recipe
-data:extend({
+local rocketPartHex = rocketItem:new("hexalith")
+rocketPartHex:setIngredients(
   {
-    type = "recipe",
-    name = "rocket-part-hexalith",
-    localised_name = {"item-name.rocket-part"},
-    localised_description = {"item-description.rocket-part"},
-    energy_required = 5,
-    enabled = false,
-    hide_from_player_crafting = false,
-    category = "centrifuging",
-    subgroup = "space-rocket",
-    ingredients = {
-      {type = "item", name = "processing-unit", amount = settings.startup["external-rocket-part-cost-setting"].value },
-      {type = "item", name = "low-density-structure", amount = settings.startup["external-rocket-part-cost-setting"].value },
-      {type = "item", name = rocketFuel, amount = settings.startup["external-rocket-part-cost-setting"].value },
-      {type = "item", name = uraniumRocketItem, amount = 10*settings.startup["external-rocket-part-cost-setting"].value }
+    { "processing-unit", 1 },
+    { "low-density-structure", 1 },
+    { "rocket-fuel", 1 },
+    { uraniumRocketItem, 10 }
+  },
+  {
+    { "processing-unit", 2 },
+    { "low-density-structure", 5 },
+    { "nuclear-fuel", 1 },
+    { uraniumRocketItem, 10 }
+  }
+)
+rocketPartHex:addPlanetImage("__hexalith-nuclear-science__/graphics/technology/hexalith.png", 512)
+rocketPartHex:add_surfaceConditions(
+  {
+    {
+      property = "pressure",
+      min = 1000,
+      max = 1000
     },
-    results = {{type="item", name="rocket-part", amount=1}},
-    allow_productivity = true,
-    allow_quality = false,
-    icons = {
-      {icon = "__base__/graphics/icons/rocket-part.png", icon_size=64},
-      {icon = "__hexalith-nuclear-science__/graphics/technology/hexalith.png", icon_size=512, scale=64/512/4, shift={-8,8}}
-    },
-    surface_conditions = {
-      {
-        property = "pressure",
-        min = 1000,
-        max = 1000
-      },
-      { -- Ensure hexalith
-        property = "gravity",
-        min = 12,
-        max = 12
-      }
+    { -- Ensure hexalith
+      property = "gravity",
+      min = 12,
+      max = 12
     }
   }
-})
+)
+rocketPartHex:apply()
 
 -- Remove uranium from nauvis rocket
 util.delete_ingriedent("rocket-part-ext", "uranium-238")
