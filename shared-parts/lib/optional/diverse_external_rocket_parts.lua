@@ -14,7 +14,6 @@ function rocketItem:new(surface_name)
       energy_required = 3,
       enabled = false,
       hide_from_player_crafting = true,
-      category = "crafting",
       subgroup = "space-rocket",
       ingredients = {},
       results = {{type="item", name="rocket-part", amount=1}},
@@ -34,7 +33,9 @@ function rocketItem:new(surface_name)
       image = {},
       added = false
     },
-    surfaceConditions = {}
+    surfaceConditions = {},
+    category = "crafting",
+    unlockedBy = "UNSET"
   }
   setmetatable(obj, self)
   self.__index = self
@@ -78,6 +79,14 @@ function rocketItem:addPlanetImage(imagePath, size)
   return self
 end
 
+function rocketItem:unlockedBy(tech_name)
+  self.unlockedBy = tech_name
+end
+
+function rocketItem:setCrafter(category)
+  self.category = category
+end
+
 function rocketItem:apply()
   -- Assemble the data
   if settings.startup["expensive-mode"].value then
@@ -86,8 +95,12 @@ function rocketItem:apply()
     self.prototype.ingredients = self.ingredients.processed
   end
   self.prototype.surface_conditions = self.surfaceConditions
+  self.prototype.category = self.category
   -- Add data to game
   data:extend({ self.prototype })
+  local name = "rocket-part-" .. self.surfaceName
+  table.insert(data.raw.technology[self.unlockedBy].effects,{ type = "unlock-recipe", recipe = name })
+  table.insert(data.raw.technology["rocket-part-productivity"].effects, { type = "change-recipe-productivity", recipe = name, change = 0.1 })
   -- Add handle that control script can see
   data:extend({
     {

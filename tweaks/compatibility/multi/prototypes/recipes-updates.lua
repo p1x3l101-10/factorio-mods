@@ -1,42 +1,78 @@
-if mods["diverse-external-rocket-parts"] and mods["lignumis"] then
-  data:extend({
-    {
-      type = "recipe",
-      name = "rocket-part-lignumis",
-      localised_name = {"item-name.rocket-part"},
-      localised_description = {"item-description.rocket-part"},
-      energy_required = 5,
-      enabled = false,
-      hide_from_player_crafting = false,
-      category = "crafting-with-steam",
-      subgroup = "space-rocket",
-      ingredients = {
-        {type = "item", name = "advanced-circuit", amount = 5*settings.startup["external-rocket-part-cost-setting"].value },
-        {type = "item", name = "low-density-structure", amount = settings.startup["external-rocket-part-cost-setting"].value },
-        {type = "item", name = "rocket-fuel", amount = 2*settings.startup["external-rocket-part-cost-setting"].value },
-        {type = "item", name = "gold-plate", amount = 20*settings.startup["external-rocket-part-cost-setting"].value }
+if mods["diverse-external-rocket-parts"] then
+  local rocketItem = require("__p1x3l101-shared-parts__/lib").optional.diverse_external_rocket_parts
+  if mods["lignumis"] then
+    local ligRocket = rocketItem:new("lignumis")
+    ligRocket:setIngredients(
+      {
+        { "advanced-circuit", 2 },
+        { "low-density-structure", 1 },
+        { "rocket-fuel", 1 },
+        { "gold-plate", 5 }
       },
-      results = {{type="item", name="rocket-part", amount=1}},
-      allow_productivity = true,
-      allow_quality = false,
-      icons = {
-        {icon = "__base__/graphics/icons/rocket-part.png", icon_size=64},
-        {icon = "__lignumis-assets__/graphics/icons/lignumis.png", icon_size=64, scale=0.25, shift={-8,8}}
-      },
-      surface_conditions = {
+      {
+        { "processing-unit", 2 },
+        { "low-density-structure", 5 },
+        { "rocket-fuel", 5 },
+        { "gold-plate", 20 }
+      }
+    )
+    ligRocket:addPlanetImage("__lignumis-assets__/graphics/icons/lignumis.png", 64)
+    ligRocket:add_surfaceConditions(
+      {
         {
           property = "pressure",
           min = 1000,
           max = 1000
         },
-        { -- Ensure lignumis
+        {
           property = "gravity",
           min = 4,
           max = 4
         }
       }
-    }
-  })
+    )
+    ligRocket:unlockedBy("space-platform-thruster")
+    ligRocket:setCrafter("crafting-with-steam")
+    ligRocket:apply()
+  end
+  if mods["maraxsis"] then
+    local waterRocket = rocketItem:new("maraxis")
+    waterRocket:setIngredients(
+      {
+        { "processing-unit", 2 },
+        { "low-density-structure", 1 },
+        { "rocket-fuel", 1 },
+        { "maraxsis-super-sealant-substance", 1 }
+      },
+      {
+        { "processing-unit", 10 },
+        { "low-density-structure", 3 },
+        { "rocket-fuel", 3 },
+        { "maraxsis-glass-panes", 5 },
+        { "maraxsis-salt", },
+        { "maraxsis-super-sealant-substance", 5 }
+      }
+    )
+    waterRocket:addPlanetImage("__planet-maraxis__/graphics/technology/maraxis.png", 256)
+    waterRocket:setCrafter("maraxsis-hydro-plant")
+    waterRocket:surfaceConditions(
+      {
+        { property = "pressure", min = 200000, max = 200000 }
+      }
+    )
+    waterRocket:apply()
+    -- Disable normal maraxis recipe
+    local old_effects = data.raw["technology"]["maraxsis-project-seadragon"].effects
+    local deleted = false
+    local new_effects = {}
+    for _, effect in pairs(old_effects) do
+      if effect[1] == "maraxsis-rocket-part" then
+        deleted = true
+      else
+        new_effects[#new_effects + 1] = effect
+    end
+    if deleted then
+      old_effects = new_effects
+    end
+  end
 end
-
-table.insert(data.raw.technology["planet-discovery-lignumis"].effects,{ type = "unlock-recipe", recipe = "rocket-part-lignumis" })

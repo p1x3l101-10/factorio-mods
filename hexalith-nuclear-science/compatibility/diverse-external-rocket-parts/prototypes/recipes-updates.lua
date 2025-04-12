@@ -38,6 +38,8 @@ rocketPartHex:add_surfaceConditions(
     }
   }
 )
+rocketPartHex:unlockedBy("uranium-processing")
+rocketPartHex:setCrafter("centrifuging")
 rocketPartHex:apply()
 
 -- Remove uranium from nauvis rocket
@@ -60,7 +62,3 @@ util.set_surface_conditions("rocket-part-ext", {
     max = 10
   }
 })
-
--- Add recipe to relivant techs
-table.insert(data.raw.technology["uranium-processing"].effects,{ type = "unlock-recipe", recipe = "rocket-part-hexalith" })
-table.insert(data.raw.technology["rocket-part-productivity"].effects, { type = "change-recipe-productivity", recipe = "rocket-part-hexalith", change = 0.1 })
