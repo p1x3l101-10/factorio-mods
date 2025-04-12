@@ -39,7 +39,7 @@ rocketPartHex:add_surfaceConditions(
   }
 )
 rocketPartHex:unlockedBy("uranium-processing")
-rocketPartHex:setCrafter("centrifuging")
+rocketPartHex:setCrafter("centrifuging-or-assembling")
 rocketPartHex:apply()
 
 -- Remove uranium from nauvis rocket
