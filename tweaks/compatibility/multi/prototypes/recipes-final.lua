@@ -19,4 +19,32 @@ if mods["maraxis"] and mods["diverse-external-rocket-parts"] then
   removeEffect("maraxsis-project-seadragon", "maraxsis-rocket-part")
   removeEffect("rocket-part-productivity", "maraxsis-rocket-part")
   data.raw.recipe["rocket-part"].surface_conditions = nil
+  data.raw["recipe"]["maraxsis-rocket-part"] = nil
+
+  -- New rocket part
+  local waterRocket = rocketItem:new("maraxis")
+    waterRocket:setIngredients(
+      {
+        { "processing-unit", 2 },
+        { "low-density-structure", 1 },
+        { "rocket-fuel", 1 },
+        { "maraxsis-super-sealant-substance", 1 }
+      },
+      {
+        { "processing-unit", 10 },
+        { "low-density-structure", 3 },
+        { "rocket-fuel", 3 },
+        { "maraxsis-glass-panes", 5 },
+        { "maraxsis-salt", },
+        { "maraxsis-super-sealant-substance", 5 }
+      }
+    )
+    waterRocket:addPlanetImage("__planet-maraxis__/graphics/technology/maraxis.png", 256)
+    waterRocket:setCrafter("maraxsis-hydro-plant-or-assembling")
+    waterRocket:surfaceConditions(
+      {
+        { property = "pressure", min = 200000, max = 200000 }
+      }
+    )
+    waterRocket:apply()
 else
