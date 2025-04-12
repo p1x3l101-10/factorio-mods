@@ -1,18 +1,13 @@
-if script.active_mods["diverse-external-rocket-parts"] then
-  local function discover_applied_surfaces()
-    local out = {}
-    for name, proto in pairs(game.virtual_signal_prototypes) do
-      local surface = name:match("^shared%-lib%-rocketpart%-surface%-(.+)")
-      if surface then
-        table.insert(out, surface)
-      end
+local function discover_applied_surfaces()
+  local out = {}
+  if not script.active_mods["diverse-external-rocket-parts"] then return out else
+  for name, proto in pairs(game.virtual_signal_prototypes) do
+    local surface = name:match("^shared%-lib%-rocketpart%-surface%-(.+)")
+    if surface then
+    table.insert(out, surface)
     end
-    return out
   end
-else
-  local function discover_applied_surfaces()
-    return
-  end
+  return out
 end
 
 script.on_init(function()
