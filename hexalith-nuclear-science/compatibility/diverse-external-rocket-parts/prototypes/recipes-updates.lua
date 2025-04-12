@@ -44,7 +44,7 @@ rocketPartHex:apply()
 
 -- Remove uranium from nauvis rocket
 util.delete_ingriedent("rocket-part-ext", "uranium-238")
-util.set_category("rocket-part-ext", "assembling")
+util.set_category("rocket-part-ext", "advanced-crafting")
 -- Fix nauvis rocket parts
 if settings.startup["expensive-mode"].value then
   util.delete_ingriedent("rocket-part-ext", "nuclear-fuel")
