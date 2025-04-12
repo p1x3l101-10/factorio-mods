@@ -1,4 +1,4 @@
-if mods["maraxis"] and mods["diverse-external-rocket-parts"] then
+if mods["maraxsis"] and mods["diverse-external-rocket-parts"] then
   -- Disable normal maraxis recipe
     local function removeEffect(techName, effect)
       local old_effects = data.raw["technology"][techName].effects
