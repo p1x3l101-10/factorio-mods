@@ -21,8 +21,8 @@ if mods["diverse-external-rocket-parts"] then
       {
         {
           property = "pressure",
-          min = 1000,
-          max = 1000
+          min = 900,
+          max = 900
         },
         {
           property = "gravity",
