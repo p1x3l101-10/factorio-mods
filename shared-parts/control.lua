@@ -1,7 +1,8 @@
 local bigunpack = require("__big-data-string2__.unpack")
 local decode = serpent.load
 local function getData(name)
-  return decode(bigunpack(name))
+  local ok, copy = decode(bigunpack(name))
+  return copy
 end
 
 script.on_configuration_changed(function()
