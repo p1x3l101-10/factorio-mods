@@ -1,5 +1,5 @@
+local bigunpack = require("__big-data-string2__.unpack")
 local function discover_applied_surfaces()
-  local bigunpack = require("__big-data-string2__.unpack")
   local decode = serpent.load
   local function getData(name)
     return decode(bigunpack(name))
