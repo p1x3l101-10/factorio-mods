@@ -111,7 +111,6 @@ function rocketItem:apply()
   end
   table.insert(data.raw.technology["rocket-part-productivity"].effects, { type = "change-recipe-productivity", recipe = name, change = 0.1 })
   -- Add handle that control script can see
-  local serpent = require("serpent")
   local function getData(name)
     local proto = data.raw["entity-ghost"]["big-data-" .. name]
     if not proto then
