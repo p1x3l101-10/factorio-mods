@@ -1,10 +1,11 @@
 name: p1x3l101-shared-parts
-version: 0.0.3
+version: 0.0.4
 title: Pixel's shared resources
 author: p1x3l101
 factorio_version: "2.0"
 dependencies:
   - base
+  - big-data-string2
   - "? space-age"
   - "? diverse-external-rocket-parts >= 0.2.4"
 space_travel_required: true # Needed to use space-age assets

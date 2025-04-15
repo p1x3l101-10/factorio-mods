@@ -1,12 +1,11 @@
 local function discover_applied_surfaces()
-  local out = {}
-  for name, proto in pairs(prototypes.virtual_signal) do
-    local surface = name:match("^shared%-lib%-rocketpart%-surface%-(.+)")
-    if surface then
-    table.insert(out, surface)
-    end
+  local bigunpack = require("__big-data-string2__.unpack")
+  local decode = require("serpent").load
+  local function getData(name)
+    return decode(bigunpack(name))
   end
-  return out
+  local planets = getData("DERP_Planet_Rockets")
+  return planets
 end
 
 script.on_configuration_changed(function()

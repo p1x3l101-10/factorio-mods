@@ -111,14 +111,35 @@ function rocketItem:apply()
   end
   table.insert(data.raw.technology["rocket-part-productivity"].effects, { type = "change-recipe-productivity", recipe = name, change = 0.1 })
   -- Add handle that control script can see
+  local serpent = require("serpent")
+  local function getData(name)
+    local proto = data.raw["entity-ghost"]["big-data-" .. name]
+    if not proto then
+      return {}
+    end
+    local function decode(data)
+      if type(data) == "string" then
+        return data
+      end
+      local str = {}
+      for i = 2, #data do
+        str[i - 1] = decode(data[i])
+      end
+      return table.concat(str, "")
+    end
+    local data = decode(proto.localised_description)
+    local ok, copy = serpent.load(data)
+    return copy
+  end
+  local planets = getData("DERP_Planet_Rockets")
+  local bigpack = require("__big-data-string2__.pack")
+  local encode = serpent.dump
+  local function setData(name, data)
+    return bigpack(name, encode(data))
+  end
+  table.insert(planets, self.surfaceName)
   data:extend({
-    {
-      type = "virtual-signal",
-      name = "shared-lib-rocketpart-surface-" .. self.surfaceName,
-      icon = "__core__/graphics/empty.png",
-      icon_size = 1,
-      flags = { "hidden" }
-    }
+    setData("DERP_Planet_Rockets", planets)
   })
 end
 
