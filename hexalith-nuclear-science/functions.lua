@@ -81,6 +81,23 @@ function M.entity.remove_crafting_category(entity_type, entity_name, category)
   end
 end
 
+function M.tech.delete_effect(tech_name, effect)
+  local tech = data.raw["technology"][tech_name]
+  if not recipe then return end
+  local deleted = false
+  local new_effects = {}
+  for _, effect_try in pairs(tech.effects) do
+    if effect_try == effect then
+      deleted = true
+    else
+      new_effects[#new_effects + 1] = effect_try
+    end
+  end
+  if deleted then
+    tech.effects = new_effects
+  end
+end
+
 function M.tech.unmake_essential(tech_name)
   if not data.raw["technology"][tech_name] then
     return
