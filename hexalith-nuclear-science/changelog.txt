@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.13
+Date: 2025-04-17
+  Info:
+    - If carbon is installed, add an option to replace hexalith oil with natural gas
+    - Also make it so that you can remove natual gas from nauvis
+    - Add an option to make Nauvis biotech restricted to Hexalith, useful with peaceful nauvis
+---------------------------------------------------------------------------------------------------
 Version: 0.1.11
 Date: 2025-04-11
   Info:
