@@ -1,3 +1,4 @@
+require("prototypes.entity-final-fixes")
 require("prototypes.worldgen-final-fixes")
 
 if mods["extraplanetary-production"] then

@@ -6,6 +6,9 @@ local aquilo = data.raw.planet.aquilo
 nauvis.map_gen_settings.autoplace_controls["uranium-ore"] = nil
 nauvis.map_gen_settings.autoplace_settings.entity.settings["uranium-ore"] = nil
 
+-- Also remove fish for good measure
+nauvis.map_gen_settings.autoplace_settings.entity.settings.fish = nil
+
 -- Apply nauvis difficulty changes
 if settings.startup["hexalith-nuclear-science-peaceful-nauvis"].value then
   nauvis.pollutant_type = nil

@@ -18,6 +18,13 @@ function M.misc.getIndex(array, value)
   return nil
 end
 
+function M.entity.set_surface_conditions(entity_name, entity_type, surface_conditions)
+  if not data.raw[entity_type] then return end
+  local entity = data.raw[entity_type][entity_name]
+  if not entity then return end
+  entity.surface_conditions = surface_conditions
+end
+
 function M.recipe.has_ingredient(recipe_name, ingredient_name)
   local recipe = data.raw["recipe"][recipe_name]
   if not recipe then return end

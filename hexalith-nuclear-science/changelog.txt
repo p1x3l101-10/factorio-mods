@@ -5,6 +5,7 @@ Date: 2025-04-17
     - If carbon is installed, add an option to replace hexalith oil with natural gas
     - Also make it so that you can remove natual gas from nauvis
     - Add an option to make Nauvis biotech restricted to Hexalith, useful with peaceful nauvis
+    - Remove fish from nauvis so that it becomes a generic planet
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.11
 Date: 2025-04-11
