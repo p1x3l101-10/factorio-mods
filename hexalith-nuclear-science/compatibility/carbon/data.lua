@@ -1,1 +1,1 @@
-require("prototypes.settings.lua")
+require("prototypes.settings")
