@@ -20,8 +20,4 @@ if cfg == "move" then
   -- Remove NG from Nauvis
   nauvis.map_gen_settings.autoplace_controls["adamo-carbon-natural-gas"] = nil
   nauvis.map_gen_settings.autoplace_settings.entity.settings["adamo-carbon-natural-gas"] = nil
-  -- Also remove the wellhead to make it fit in with other fluids
-  local NGcfg = settings.startup["adamo-carbon-wellhead"]
-  NGcfg.hidden = true
-  NGcfg.forced_value = false
 end
