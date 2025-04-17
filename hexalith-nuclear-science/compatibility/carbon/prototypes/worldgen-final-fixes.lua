@@ -2,7 +2,7 @@ local cfg = settings.startup["hexalith-nuclear-science-natural-gas"].value
 local nauvis = data.raw.planet.nauvis
 local hexalith = data.raw.planet.hexalith
 
-if cfg = "no" then
+if cfg == "no" then
   return
 end
 
