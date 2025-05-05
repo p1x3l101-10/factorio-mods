@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.14
+Date: 2025-05-05
+  Info:
+    - Fix crash with factorio update 2.0.47. linked to nerve roots decorations
+    - Corrected some duplicate version numbers in the changelog
+---------------------------------------------------------------------------------------------------
 Version: 0.1.13
 Date: 2025-04-17
   Info:
@@ -7,7 +13,7 @@ Date: 2025-04-17
     - Add an option to make Nauvis biotech restricted to Hexalith, useful with peaceful nauvis
     - Remove fish from nauvis so that it becomes a generic planet
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.11
+Version: 0.1.12
 Date: 2025-04-11
   Info:
     - Add compat with diverse-external-rocket-parts
@@ -31,7 +37,7 @@ Date: 2025-03-28
     - Internal location changes
     - Add an achevement for visiting Hexalith, the images are unfinished at the moment though\
 ---------------------------------------------------------------------------------------------------
-Version: 0.1.9
+Version: 0.1.8
 Date: 2025-03-27
   Info:
     - Move compatibilities that don't relate to this mod into another one
